@@ -1,7 +1,7 @@
-import { createApp } from "vue";
-import "./style.css";
-import App from "./App.vue";
+import { createApp } from 'vue';
+import App from './App.vue';
 
-import GGElement from "GG-element";
+import GGElement from 'GG-element';
+import 'GG-element/dist/index.css';
 
-createApp(App).use(GGElement).mount("#app");
+createApp(App).use(GGElement).mount('#app');

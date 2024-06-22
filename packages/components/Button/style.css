@@ -1,0 +1,199 @@
+.gg-button-group {
+  --gg-button-group-border-color: var(--gg-border-color-lighter);
+}
+.gg-button {
+  --gg-button-font-weight: var(--gg-font-weight-primary);
+  --gg-button-border-color: var(--gg-border-color);
+  --gg-button-bg-color: var(--gg-fill-color-blank);
+  --gg-button-text-color: var(--gg-text-color-regular);
+  --gg-button-disabled-text-color: var(--gg-disabled-text-color);
+  --gg-button-disabled-bg-color: var(--gg-fill-color-blank);
+  --gg-button-disabled-border-color: var(--gg-border-color-light);
+  --gg-button-hover-text-color: var(--gg-color-primary);
+  --gg-button-hover-bg-color: var(--gg-color-primary-light-9);
+  --gg-button-hover-border-color: var(--gg-color-primary-light-7);
+  --gg-button-active-text-color: var(--gg-button-hover-text-color);
+  --gg-button-active-border-color: var(--gg-color-primary);
+  --gg-button-active-bg-color: var(--gg-button-hover-bg-color);
+  --gg-button-outline-color: var(--gg-color-primary-light-5);
+  --gg-button-active-color: var(--gg-text-color-primary);
+}
+
+.gg-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--gg-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--gg-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--gg-button-bg-color);
+  border: var(--gg-border);
+  border-color: var(--gg-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--gg-font-size-base);
+  border-radius: var(--gg-border-radius-base);
+  & + & {
+    margin-left: 12px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--gg-button-hover-text-color);
+    border-color: var(--gg-button-hover-border-color);
+    background-color: var(--gg-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--gg-button-active-text-color);
+    border-color: var(--gg-button-active-border-color);
+    background-color: var(--gg-button-active-bg-color);
+    outline: none;
+  }
+  /*plain*/
+  &.is-plain {
+    --gg-button-hover-text-color: var(--gg-color-primary);
+    --gg-button-hover-bg-color: var(--gg-fill-color-blank);
+    --gg-button-hover-border-color: var(--gg-color-primary);
+  }
+  /*round*/
+  &.is-round {
+    border-radius: var(--gg-border-radius-round);
+  }
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /*disabled*/
+  &.is-loading,
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--gg-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--gg-button-disabled-bg-color);
+    border-color: var(--gg-button-disabled-border-color);
+  }
+  [class*='gg-icon'] {
+    width: 1em;
+    height: 1em;
+  }
+}
+@each $val in primary, success, warning, info, danger {
+  .gg-button--$(val) {
+    --gg-button-text-color: var(--gg-color-white);
+    --gg-button-bg-color: var(--gg-color-$(val));
+    --gg-button-border-color: var(--gg-color-$(val));
+    --gg-button-outline-color: var(--gg-color-$(val)-light-5);
+    --gg-button-active-color: var(--gg-color-$(val)-dark-2);
+    --gg-button-hover-text-color: var(--gg-color-white);
+    --gg-button-hover-bg-color: var(--gg-color-$(val)-light-3);
+    --gg-button-hover-border-color: var(--gg-color-$(val)-light-3);
+    --gg-button-active-bg-color: var(--gg-color-$(val)-dark-2);
+    --gg-button-active-border-color: var(--gg-color-$(val)-dark-2);
+    --gg-button-disabled-text-color: var(--gg-color-white);
+    --gg-button-disabled-bg-color: var(--gg-color-$(val)-light-5);
+    --gg-button-disabled-border-color: var(--gg-color-$(val)-light-5);
+  }
+  .gg-button--$(val).is-plain {
+    --gg-button-text-color: var(--gg-color-$(val));
+    --gg-button-bg-color: var(--gg-color-$(val)-light-9);
+    --gg-button-border-color: var(--gg-color-$(val)-light-5);
+    --gg-button-hover-text-color: var(--gg-color-white);
+    --gg-button-hover-bg-color: var(--gg-color-$(val));
+    --gg-button-hover-border-color: var(--gg-color-$(val));
+    --gg-button-active-text-color: var(--gg-color-white);
+
+    --gg-button-disabled-text-color: var(--gg-color-$(val)-light-5);
+    --gg-button-disabled-bg-color: var(--gg-color-$(val)-light-9);
+    --gg-button-disabled-border-color: var(--gg-color-$(val)-light-8);
+  }
+}
+.gg-button--large {
+  --gg-button-size: 40px;
+  height: var(--gg-button-size);
+  padding: 12px 19px;
+  font-size: var(--gg-font-size-base);
+  border-radius: var(--gg-border-radius-base);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 12px;
+  }
+}
+.gg-button--small {
+  --gg-button-size: 24px;
+  height: var(--gg-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--gg-border-radius-base) - 1px);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 5px;
+  }
+  [class*='gg-icon'] {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.gg-button-group {
+  display: inline-block;
+  vertical-align: middle;
+
+  &::after {
+    clear: both;
+  }
+  & > :deep(.gg-button) {
+    float: left;
+    position: relative;
+    margin-left: 0;
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-color: var(--gg-button-group-border-color);
+    }
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left-color: var(--gg-button-group-border-color);
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+
+      border-left-color: var(--gg-button-group-border-color);
+      border-right-color: var(--gg-button-group-border-color);
+    }
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+    &:first-child:last-child {
+      border-top-right-radius: var(--gg-border-radius-base);
+      border-bottom-right-radius: var(--gg-border-radius-base);
+      border-top-left-radius: var(--gg-border-radius-base);
+      border-bottom-left-radius: var(--gg-border-radius-base);
+
+      &.is-round {
+        border-radius: var(--gg-border-radius-round);
+      }
+
+      &.is-circle {
+        border-radius: 50%;
+      }
+    }
+  }
+}
