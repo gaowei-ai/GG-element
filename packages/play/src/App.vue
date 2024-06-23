@@ -1,29 +1,19 @@
 <script setup lang="ts">
-	import Children from "./components/Children.vue";
+	import { ref } from "vue";
+	const value = ref([]);
+	const handleChange = (...args: any) => {
+		console.log(args);
+		console.log(value.value);
+	};
 </script>
 
 <template>
 	<gg-button type="success">13123</gg-button>
-	<Children>
-		<template #header>
-			123
-		</template>
-		<span>content</span>
-		<span>eqe</span>
-	</Children>
+	<gg-collapse v-model="value" @change="handleChange">
+		<gg-collapse-item name="1" title="第一项">12313213123</gg-collapse-item>
+		<gg-collapse-item name="2" title="第2项">asdadSDsd </gg-collapse-item>
+		<gg-collapse-item name="3" title="第3项">23asdaSD</gg-collapse-item>
+	</gg-collapse>
 </template>
 
-<style scoped>
-	.logo {
-		height: 6em;
-		padding: 1.5em;
-		will-change: filter;
-		transition: filter 300ms;
-	}
-	.logo:hover {
-		filter: drop-shadow(0 0 2em #646cffaa);
-	}
-	.logo.vue:hover {
-		filter: drop-shadow(0 0 2em #42b883aa);
-	}
-</style>
+<style scoped></style>
