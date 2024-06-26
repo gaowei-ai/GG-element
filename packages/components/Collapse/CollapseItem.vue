@@ -22,8 +22,8 @@
 			<gg-icon icon="angle-right" class="header-angle" />
 		</div>
 		<transition name="slide" v-on="transitionEvents">
-			<div class="er-collapse-item__wapper" v-show="isActive">
-				<div class="er-collapse-item__content" :id="`item-content-${name}`">
+			<div class="gg-collapse-item__wapper" v-show="isActive">
+				<div class="gg-collapse-item__content" :id="`item-content-${name}`">
 					<slot></slot>
 				</div>
 			</div>

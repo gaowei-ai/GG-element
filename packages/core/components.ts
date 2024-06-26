@@ -1,3 +1,9 @@
-import { GgButton, GgButtonGroup, GgCollapse, GgCollapseItem } from "@GG-element/components";
+import {
+	GgButton,
+	GgButtonGroup,
+	GgCollapse,
+	GgCollapseItem,
+	GgIcon,
+} from "@GG-element/components";
 
-export default [GgButton, GgButtonGroup, GgCollapse, GgCollapseItem];
+export default [GgButton, GgButtonGroup, GgCollapse, GgCollapseItem, GgIcon];

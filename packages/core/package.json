@@ -2,15 +2,32 @@
 	"name": "GG-element",
 	"version": "1.0.0",
 	"description": "Components Library By Vue3+Ts",
-	"main": "index.js",
+	"main": "./dist/umd/index.umd.cjs",
+	"module": "./dist/es/index.js",
+	"types": "./dist/types/core/index.d.ts",
 	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/es/index.js",
+			"require": "./dist/umd/index.umd.cjs",
+			"types": "./dist/types/core/index.d.ts"
+		},
+		"./dist/": {
+			"import": "./dist/",
+			"require": "./dist/"
+		}
+	},
+	"sideEffects": [
+		"./dist/index.css"
+	],
 	"scripts": {
 		"test": "run-s 串行 run -p 并行",
-		"build": "run-s build-only move-file",
-		"build-only": "run-p build-umd build-es",
+		"build": "run-p build-umd build-es",
+		"build:watch": "run-p build-umd:watch build-es:watch",
 		"build-umd": "vite build --config vite.umd.config.ts",
 		"build-es": "vite build --config vite.es.config.ts",
-		"move-file": "move-file dist/es/index.css dist/index.css"
+		"build-umd:watch": "vite build --watch --config vite.umd.config.ts",
+		"build-es:watch": "vite build --watch --config vite.es.config.ts"
 	},
 	"keywords": [],
 	"author": "",
