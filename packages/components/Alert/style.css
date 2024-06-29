@@ -1,0 +1,100 @@
+.gg-alert {
+	--gg-alert-padding: 8px 16px;
+	--gg-alert-border-radius-base: var(--gg-border-radius-base);
+	--gg-alert-bg-color: var(--gg-color-white);
+	--gg-alert-title-font-size: 14px;
+	--gg-alert-title-font-size-with-desc: 16px;
+	--gg-alert-desc-font-size: 14px;
+	--gg-alert-text-color: var(--gg-text-color-primary);
+	--gg-alert-top-margin: 20px;
+	--gg-alert-icon-size: 16px;
+	--gg-alert-icon-margin: 8px;
+	--gg-alert-big-icon-size: 28px;
+	--gg-alert-big-icon-margin: 12px;
+}
+.gg-alert {
+	padding: var(--gg-alert-padding);
+	margin: 0;
+	box-sizing: border-box;
+	border-radius: var(--gg-alert-border-radius-base);
+	position: relative;
+	background-color: var(--gg-alert-bg-color);
+	overflow: hidden;
+	opacity: 1;
+	display: flex;
+	align-items: center;
+	transition: opacity var(--gg-transition-duration);
+	margin-top: var(--gg-alert-top-margin);
+	.gg-alert__icon {
+		color: var(--gg-alert-text-color);
+		font-size: var(--gg-alert-icon-size);
+		width: var(--gg-alert-icon-size);
+		margin-right: var(--gg-alert-icon-margin);
+		&.big-icon {
+			font-size: var(--gg-alert-big-icon-size);
+			width: var(--gg-alert-big-icon-size);
+			margin-right: var(--gg-alert-big-icon-margin);
+		}
+	}
+	.gg-alert__content {
+		color: var(--gg-alert-text-color);
+		vertical-align: text-top;
+		.gg-alert__title {
+			font-size: var(--gg-alert-title-font-size);
+			line-height: 24px;
+			&.with-desc {
+				font-size: var(--gg-alert-title-font-size-with-desc);
+			}
+		}
+		.gg-alert__description {
+			font-size: var(--gg-alert-desc-font-size);
+			margin: 0;
+		}
+
+		.gg-alert__close {
+			font-size: var(--gg-alert-close-font-size);
+			opacity: 1;
+			position: absolute;
+			top: 12px;
+			right: 15px;
+			cursor: pointer;
+			:deep(.gg-icon) {
+				vertical-align: top;
+			}
+		}
+		&.gg-alert__light {
+			.gg-alert__close {
+				color: var(--gg-text-color-placeholder);
+			}
+		}
+		&.gg-alert__dark {
+			.gg-alert__close {
+				color: var(--gg-color-white);
+			}
+		}
+	}
+
+	&.text-center {
+		justify-content: center;
+		span,
+		p {
+			text-align: center;
+		}
+	}
+}
+
+.gg-alert-fade-enter-from,
+.gg-alert-fade-leave-to {
+	opacity: 0;
+}
+
+@each $val in success, warning, info, danger {
+	.gg-alert__$(val).gg-alert__light {
+		--gg-alert-text-color: var(--gg-color-$(val));
+		--gg-alert-bg-color: var(--gg-color-$(val)-light-9);
+	}
+	.gg-alert__$(val).gg-alert__dark {
+		--gg-alert-text-color: var(--gg-color-white);
+		--gg-alert-bg-color: var(--gg-color-$(val));
+	}
+}
