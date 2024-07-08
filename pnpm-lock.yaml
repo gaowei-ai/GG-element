@@ -17,9 +17,18 @@ importers:
       '@GG-element/utils':
         specifier: workspace:*
         version: link:packages/utils
+      '@vitest/coverage-v8':
+        specifier: ^1.6.0
+        version: 1.6.0(vitest@1.6.0(@types/node@20.14.6)(jsdom@24.1.0))
+      '@vue/test-utils':
+        specifier: ^2.4.6
+        version: 2.4.6
       GG-element:
         specifier: workspace:*
         version: link:packages/core
+      jsdom:
+        specifier: ^24.1.0
+        version: 24.1.0
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -100,17 +109,7 @@ importers:
         specifier: ^1.8.27
         version: 1.8.27(typescript@5.4.5)
 
-  packages/components:
-    devDependencies:
-      '@vitest/coverage-v8':
-        specifier: ^1.6.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.14.6)(jsdom@24.1.0))
-      '@vue/test-utils':
-        specifier: ^2.4.6
-        version: 2.4.6
-      jsdom:
-        specifier: ^24.1.0
-        version: 24.1.0
+  packages/components: {}
 
   packages/core:
     dependencies:
@@ -5014,9 +5013,6 @@ packages:
       typescript:
         optional: true
 
-  vue-component-type-helpers@2.0.21:
-    resolution: {integrity: sha512-3NaicyZ7N4B6cft4bfb7dOnPbE9CjLcx+6wZWAg5zwszfO4qXRh+U52dN5r5ZZfc6iMaxKCEcoH9CmxxoFZHLg==}
-
   vue-component-type-helpers@2.0.22:
     resolution: {integrity: sha512-gPr2Ba7efUwy/Vfbuf735bHSVdN4ycoZUCHfypkI33M9DUH+ieRblLLVM2eImccFYaWNWwEzURx02EgoXDBmaQ==}
 
@@ -7648,7 +7644,7 @@ snapshots:
   '@vue/test-utils@2.4.6':
     dependencies:
       js-beautify: 1.15.1
-      vue-component-type-helpers: 2.0.21
+      vue-component-type-helpers: 2.0.22
 
   '@vue/tsconfig@0.5.1': {}
 
@@ -10816,8 +10812,6 @@ snapshots:
       vue-component-type-helpers: 2.0.22
     optionalDependencies:
       typescript: 5.4.5
-
-  vue-component-type-helpers@2.0.21: {}
 
   vue-component-type-helpers@2.0.22: {}
 
