@@ -6,7 +6,7 @@ import { delay, filter, includes, map } from "lodash-es";
 import { resolve } from "path";
 import dts from "vite-plugin-dts"; //生产d.ts文件
 import { readdirSync, readdir } from "fs";
-import { hooksPlugin } from "./hooksPlugin";
+import { hooksPlugin } from "@GG-element/vite-plugins";
 
 function getDirectoriesSync(basePath: string) {
 	const entries = readdirSync(resolve(__dirname, basePath), { withFileTypes: true });

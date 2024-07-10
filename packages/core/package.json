@@ -33,7 +33,6 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"vite-plugin-dts": "3.9.1",
 		"@GG-element/components": "workspace:*"
 	},
 	"dependencies": {

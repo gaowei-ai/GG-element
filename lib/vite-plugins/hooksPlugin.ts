@@ -1,7 +1,7 @@
 import { each, isFunction } from "lodash-es";
 import shelljs from "shelljs";
 
-export function hooksPlugin({
+export default function hooksPlugin({
 	rmFiles = [],
 	buildStart,
 	afterBuild,

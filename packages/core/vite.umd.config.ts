@@ -6,7 +6,7 @@ import vue from "@vitejs/plugin-vue";
 
 import { resolve } from "path";
 import { delay } from "lodash-es";
-import { hooksPlugin } from "./hooksPlugin";
+import { hooksPlugin } from "@GG-element/vite-plugins";
 
 function moveStyles() {
 	readFile("./dist/umd/index.css", (err) => {

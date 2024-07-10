@@ -17,6 +17,9 @@ importers:
       '@GG-element/utils':
         specifier: workspace:*
         version: link:packages/utils
+      '@GG-element/vite-plugins':
+        specifier: workspace:*
+        version: link:lib/vite-plugins
       '@vitest/coverage-v8':
         specifier: ^1.6.0
         version: 1.6.0(vitest@1.6.0(@types/node@20.14.6)(jsdom@24.1.0))
@@ -102,12 +105,17 @@ importers:
       vite:
         specifier: ^5.1.4
         version: 5.3.1(@types/node@20.14.6)
+      vite-plugin-dts:
+        specifier: 3.9.1
+        version: 3.9.1(@types/node@20.14.6)(rollup@4.18.0)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.6))
       vitest:
         specifier: ^1.4.0
         version: 1.6.0(@types/node@20.14.6)(jsdom@24.1.0)
       vue-tsc:
         specifier: ^1.8.27
         version: 1.8.27(typescript@5.4.5)
+
+  lib/vite-plugins: {}
 
   packages/components: {}
 
@@ -5016,6 +5024,9 @@ packages:
   vue-component-type-helpers@2.0.22:
     resolution: {integrity: sha512-gPr2Ba7efUwy/Vfbuf735bHSVdN4ycoZUCHfypkI33M9DUH+ieRblLLVM2eImccFYaWNWwEzURx02EgoXDBmaQ==}
 
+  vue-component-type-helpers@2.0.26:
+    resolution: {integrity: sha512-sO9qQ8oC520SW6kqlls0iqDak53gsTVSrYylajgjmkt1c0vcgjsGSy1KzlDrbEx8pm02IEYhlUkU5hCYf8rwtg==}
+
   vue-demi@0.14.8:
     resolution: {integrity: sha512-Uuqnk9YE9SsWeReYqK2alDI5YzciATE0r2SkA6iMAtuXvNTMNACJLJEXNXaEy94ECuBe4Sk6RzRU80kjdbIo1Q==}
     engines: {node: '>=12'}
@@ -7263,7 +7274,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.4.29(typescript@5.4.5)
-      vue-component-type-helpers: 2.0.22
+      vue-component-type-helpers: 2.0.26
     transitivePeerDependencies:
       - encoding
       - prettier
@@ -10814,6 +10825,8 @@ snapshots:
       typescript: 5.4.5
 
   vue-component-type-helpers@2.0.22: {}
+
+  vue-component-type-helpers@2.0.26: {}
 
   vue-demi@0.14.8(vue@3.4.29(typescript@5.4.5)):
     dependencies:
