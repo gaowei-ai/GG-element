@@ -2,15 +2,15 @@
 	"name": "@GG-element/vite-plugins",
 	"version": "1.0.0",
 	"description": "",
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
+	"main": "./.dist/index.cjs",
+	"module": "./.dist/index.mjs",
+	"types": "./.dist/index.d.ts",
 	"type": "module",
 	"exports": {
 		".": {
-			"require": "./dist/index.cjs",
-			"import": "./dist/index.mjs",
-			"types": "./dist/index.d.ts"
+			"require": "./.dist/index.cjs",
+			"import": "./.dist/index.mjs",
+			"types": "./.dist/index.d.ts"
 		}
 	},
 	"scripts": {
