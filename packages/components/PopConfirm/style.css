@@ -1,0 +1,13 @@
+.gg-popconfirm {
+	.gg-popconfirm__main {
+		display: flex;
+		align-items: center;
+		i {
+			margin-right: 5px;
+		}
+	}
+	.gg-popconfirm__action {
+		text-align: right;
+		margin-top: 8px;
+	}
+}

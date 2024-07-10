@@ -22,6 +22,9 @@ const meta: Meta<typeof GgTooltip> = {
 				type: "select",
 			},
 		},
+		hideTimeout: {
+			control: "number",
+		},
 	},
 	args: {
 		"onVisible-change": fn(),
@@ -33,6 +36,7 @@ export const Default: Story = {
 		content: "This is a tooltip",
 		placement: "top",
 		trigger: "hover",
+		hideTimeout: 0,
 	},
 	render: (args) => ({
 		components: { GgTooltip },
