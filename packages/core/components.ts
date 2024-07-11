@@ -7,6 +7,8 @@ import {
 	GgAlert,
 	GgTooltip,
 	GgPopConfirm,
+	GgDropdown,
+	GgDropdownItem,
 } from "@GG-element/components";
 
 export default [
@@ -18,4 +20,6 @@ export default [
 	GgAlert,
 	GgTooltip,
 	GgPopConfirm,
+	GgDropdown,
+	GgDropdownItem,
 ];

@@ -9,7 +9,9 @@
 		"docs:dev": "pnpm -F @GG-element/docs dev",
 		"docs:build": "pnpm -F @GG-element/docs build",
 		"test": "pnpm -F @GG-element/components test",
-		"build": "cross-env NODE_ENV=production  pnpm -F GG-element build",
+		"build": "run-s build-hooks build-comp",
+		"build-comp": "cross-env NODE_ENV=production pnpm --filter GG-element build",
+		"build-hooks": "cross-env NODE_ENV=production pnpm --filter @GG-element/hooks build",
 		"build:dev": "cross-env NODE_ENV=development  pnpm -F GG-element build:watch"
 	},
 	"keywords": [],
@@ -38,20 +40,21 @@
 		"shelljs": "^0.8.5",
 		"typescript": "^5.2.2",
 		"vite": "^5.1.4",
+		"vite-plugin-dts": "3.9.1",
 		"vitest": "^1.4.0",
 		"vue-tsc": "^1.8.27",
-		"vite-plugin-dts": "3.9.1"
+		"vue3-i18n": "^1.1.5"
 	},
 	"dependencies": {
 		"@GG-element/hooks": "workspace:*",
 		"@GG-element/theme": "workspace:*",
 		"@GG-element/utils": "workspace:*",
 		"@GG-element/vite-plugins": "workspace:*",
-		"GG-element": "workspace:*",
-		"lodash-es": "^4.17.21",
-		"vue": "^3.4.19",
 		"@vitest/coverage-v8": "^1.6.0",
 		"@vue/test-utils": "^2.4.6",
-		"jsdom": "^24.1.0"
+		"GG-element": "workspace:*",
+		"jsdom": "^24.1.0",
+		"lodash-es": "^4.17.21",
+		"vue": "^3.4.19"
 	}
 }

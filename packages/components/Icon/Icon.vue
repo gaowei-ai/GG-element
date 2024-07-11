@@ -1,5 +1,5 @@
 <template>
-	<i class="gg-icon" v-bind="$attrs">
+	<i class="gg-icon" :class="[`gg-icon-${props.type}`]" :style="customStyles" v-bind="$attrs">
 		<font-awesome-icon v-bind="filterProps" />
 	</i>
 </template>
@@ -17,6 +17,7 @@
 
 	const props = defineProps<IconProps>();
 	const filterProps = computed(() => omit(props, ["type", "color"])); // type color 是自己定义的 需去除
+	const customStyles = computed(() => ({ color: props.color ?? void 0 }));
 </script>
 <style scoped>
 	@import "./style.css";
