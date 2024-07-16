@@ -1,68 +1,28 @@
 <script setup lang="ts">
-	import { ref, useSlots } from "vue";
-	const value = ref([]);
-	const handleChange = (...args: any) => {
-		console.log(args);
-		console.log(value.value);
+	import { ja, ko, en, zhCn, zhTw, GgConfigProvider, GgPopConfirm } from "GG-element";
+	import { get } from "lodash-es";
+
+	import { computed, ref } from "vue";
+
+	const language = ref("zhTw");
+	const langMap = {
+		ja,
+		ko,
+		en,
+		zhCn,
+		zhTw,
+	} as const;
+	const locale = computed(() => get(langMap, language.value));
+	const changelang = () => {
+		const l = ["zhCn", "zhTw", "ko", "en", "ja"];
+		language.value = l[(l.indexOf(language.value) + 1) % l.length];
 	};
-
-	function handleConfirm(e: any) {
-		console.log("confirm", e);
-	}
-	function handleCancel(e: any) {
-		console.log("cancel", e);
-	}
-
-	const item = ref([
-		{
-			command: 1,
-			label: "command1",
-			// disabled: true,
-		},
-		{
-			command: 2,
-			label: "command2",
-		},
-	]);
-
-	function handleCommand(item: any) {
-		console.log(item);
-	}
-	function handleClick() {
-		console.log("click");
-	}
-
-	import Children from "./components/Children.vue";
 </script>
-
 <template>
-	<!-- <gg-button type="success" icon="search">13123</gg-button>
-	<gg-icon icon="search"></gg-icon>
-	<gg-collapse v-model="value" @change="handleChange">
-		<gg-collapse-item name="1" title="第一项">12313213123</gg-collapse-item>
-		<gg-collapse-item name="2" title="第2项">asdadSDsd </gg-collapse-item>
-		<gg-collapse-item name="3" title="第3项">23asdaSD</gg-collapse-item>
-	</gg-collapse> -->
-
-	<!-- <gg-icon icon="search" color="red" type="success"></gg-icon>
-	<gg-popConfirm title="popConfirm" @confirm="handleConfirm" @cancel="handleCancel" width="300">
-		<button>13131</button>
-	</gg-popConfirm> -->
-
-	<!-- <gg-dropdown
-		:items="item"
-		@command="handleCommand"
-		:splitButton="true"
-		@click="handleClick"
-		disabled
-	>
-		<span>12213</span>
-	</gg-dropdown> -->
-
-	<gg-dropdown :items="item" :disabled="true">
-		<span> Dropdown List GG </span>
-	</gg-dropdown>
-	<Children>children</Children>
+	<gg-button @click="changelang" type="info" style="margin-right: 20px">change language</gg-button>
+	<gg-config-provider :locale="locale">
+		<gg-pop-confirm title="Are you shure to delete this item?">
+			<gg-button>Delete</gg-button>
+		</gg-pop-confirm>
+	</gg-config-provider>
 </template>
-
-<style scoped></style>

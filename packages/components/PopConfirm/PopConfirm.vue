@@ -13,7 +13,7 @@
 						:type="cancelButtonType"
 						@click="handleCancel"
 					>
-						{{ cancelButtonText }}
+						{{ cancelButtonText || locale.t("popconfirm.cancelButtonText") }}
 					</gg-button>
 					<gg-button
 						class="gg-popconfirm__confirm"
@@ -21,7 +21,7 @@
 						:type="confirmButtonType"
 						@click="handleConfirm"
 					>
-						{{ confirmButtonText }}
+						{{ confirmButtonText || locale.t("popconfirm.confirmButtonText") }}
 					</gg-button>
 				</div>
 			</div>
@@ -43,12 +43,14 @@
 	import { GgIcon } from "../Icon";
 	import { GgButton } from "../Button";
 	import type { PopConfirmEmits, PopConfirmProps } from "./types";
-	import { addUnit } from "@GG-element/utils/style";
+	import { addUnit } from "@GG-element/utils";
+	import { useLocale } from "@GG-element/hooks";
 
 	defineOptions({
 		name: "GgPopConfirm",
 	});
 
+	const locale = useLocale();
 	const slots = useSlots();
 	const tooltipRef = ref<TooltipInstance>();
 	const props = withDefaults(defineProps<PopConfirmProps>(), {
@@ -58,8 +60,6 @@
 		iconColor: "#f90",
 		hideAfter: 200,
 		width: 150,
-		confirmButtonText: "OK",
-		cancelButtonText: "Cancel",
 	});
 	const emits = defineEmits<PopConfirmEmits>();
 

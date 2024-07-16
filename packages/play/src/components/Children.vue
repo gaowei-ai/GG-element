@@ -1,5 +1,6 @@
 <template>
 	<div>{{ msg }}</div>
+	<div>国际化:{{ t("popconfirm.confirmButtonText") }}</div>
 	<hr />
 	插槽：
 	<div>
@@ -10,9 +11,14 @@
 </template>
 
 <script setup lang="ts">
+	import { useLocale } from "@GG-element/hooks";
+
 	const props = withDefaults(defineProps<{ msg: string }>(), {
 		msg: "children",
 	});
+
+	const { t } = useLocale();
+	useLocale;
 
 	console.log(props.msg);
 </script>

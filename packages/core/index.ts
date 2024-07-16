@@ -1,4 +1,4 @@
-import { makeInstaller } from "@GG-element/utils";
+import { makeInstaller } from "./makeInstaller";
 import components from "./components";
 import "@GG-element/theme/index.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -13,5 +13,6 @@ library.add(fas); //添加图标
 const installer = makeInstaller(components);
 
 export * from "@GG-element/components";
+export * from "@GG-element/locale";
 
 export default installer;

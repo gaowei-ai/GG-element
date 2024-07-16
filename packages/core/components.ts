@@ -9,6 +9,7 @@ import {
 	GgPopConfirm,
 	GgDropdown,
 	GgDropdownItem,
+	GgConfigProvider,
 } from "@GG-element/components";
 
 export default [
@@ -22,4 +23,5 @@ export default [
 	GgPopConfirm,
 	GgDropdown,
 	GgDropdownItem,
+	GgConfigProvider,
 ];

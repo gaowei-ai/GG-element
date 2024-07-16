@@ -1,5 +1,6 @@
 export * from "./install";
 export * from "./error";
+export * from "./style";
 
 export const typeIconMap = new Map([
 	["info", "circle-info"],
