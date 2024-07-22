@@ -1,4 +1,4 @@
-import { withInstall, makeInstaller } from "../install";
+import { withInstall } from "../install";
 import { describe, it, expect } from "vitest";
 import { createApp, defineComponent } from "vue";
 import { mount } from "@vue/test-utils";
@@ -28,20 +28,6 @@ describe("utils/install.ts", () => {
 		const app = createApp(AppComp);
 		app.use(withInstall(CompA));
 		app.use(withInstall(ComB));
-		app.mount(wrapper.element);
-
-		expect(wrapper.findComponent(CompA)).toBeTruthy();
-		expect(wrapper.findComponent(ComB)).toBeTruthy();
-	});
-
-	it("makeInstall should work", () => {
-		const wrapper = mount(() => <div id="app"></div>);
-		const app = createApp(AppComp);
-		const withInstallComA = withInstall(CompA);
-		const withInstallComB = withInstall(ComB);
-		const installer = makeInstaller([withInstallComA, withInstallComB]);
-
-		app.use(installer);
 		app.mount(wrapper.element);
 
 		expect(wrapper.findComponent(CompA)).toBeTruthy();

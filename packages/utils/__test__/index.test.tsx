@@ -1,14 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { withInstall, makeInstaller, debugWarn, throwError, typeIconMap } from "../index";
+import { withInstall, debugWarn, throwError, typeIconMap } from "../index";
 import { each } from "lodash-es";
 
 describe("utils/index", () => {
 	it("withInstall show be export", () => {
 		expect(withInstall).toBeDefined();
-	});
-
-	it("makeInstaller show be export", () => {
-		expect(makeInstaller).toBeDefined();
 	});
 
 	it("debugWarn show be export", () => {

@@ -1,0 +1,81 @@
+.gg-message {
+	--gg-message-bg-color: var(--gg-color-info-light-9);
+	--gg-message-border-color: var(--gg-border-color-lighter);
+	--gg-message-padding: 15px 19px;
+	--gg-message-close-size: 16px;
+	--gg-message-close-icon-color: var(--gg-text-color-placeholder);
+	--gg-message-close-hover-color: var(--gg-text-color-secondary);
+	--gg-message-icon-size: 16px;
+	--gg-message-icon-margin: 8px;
+}
+
+.gg-message {
+	width: fit-content;
+	max-width: calc(100% - 32px);
+	box-sizing: border-box;
+	border-radius: var(--gg-border-radius-base);
+	border-width: var(--gg-border-width);
+	border-style: var(--gg-border-style);
+	border-color: var(--gg-message-border-color);
+	position: fixed;
+	left: 50%;
+	top: 20px;
+	transform: translateX(-50%);
+	background-color: var(--gg-message-bg-color);
+	padding: var(--gg-message-padding);
+	display: flex;
+	align-items: center;
+	transition:
+		top var(--gg-transition-duration),
+		opacity var(--gg-transition-duration),
+		transform var(--gg-transition-duration);
+	.gg-message__icon {
+		color: var(--gg-message-text-color);
+		font-size: var(--gg-message-icon-size);
+		width: var(--gg-message-icon-size);
+		margin-right: var(--gg-message-icon-margin);
+	}
+	.gg-message__content {
+		color: var(--gg-message-text-color);
+		overflow-wrap: break-word;
+	}
+	&.is-close .gg-message__content {
+		padding-right: 10px;
+	}
+	&.text-center {
+		justify-content: center;
+	}
+	.gg-message__close {
+		display: flex;
+		align-items: center;
+	}
+	.gg-message__close .gg-icon {
+		cursor: pointer;
+	}
+}
+
+@each $val in info, success, warning, danger {
+	.gg-message--$(val) {
+		--gg-message-bg-color: var(--gg-color-$(val)-light-9);
+		--gg-message-border-color: var(--gg-color-$(val)-light-8);
+		--gg-message-text-color: var(--gg-color-$(val));
+		.gg-message__close {
+			--gg-icon-color: var(--gg-color-$(val));
+		}
+	}
+}
+
+.gg-message--error {
+	--gg-message-bg-color: var(--gg-color-danger-light-9);
+	--gg-message-border-color: var(--gg-color-danger-light-8);
+	--gg-message-text-color: var(--gg-color-danger);
+	.gg-message__close {
+		--gg-icon-color: var(--gg-color-danger);
+	}
+}
+
+.gg-message.fade-up-enter-from,
+.gg-message.fade-up-leave-to {
+	opacity: 0;
+	transform: translate(-50%, -100%);
+}

@@ -10,6 +10,7 @@ import {
 	GgDropdown,
 	GgDropdownItem,
 	GgConfigProvider,
+	GgMessage,
 } from "@GG-element/components";
 
 export default [
@@ -24,4 +25,5 @@ export default [
 	GgDropdown,
 	GgDropdownItem,
 	GgConfigProvider,
+	GgMessage,
 ];

@@ -1,5 +1,4 @@
 export default function () {
-	console.log("[EricUI]:build mode...");
 	if (PROD) {
 		const logo = `
 ________________________________________________

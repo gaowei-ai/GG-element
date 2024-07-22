@@ -1,23 +1,6 @@
 import type { Plugin, App } from "vue";
-import { each } from "lodash-es";
 
 type SFCWithInstall<T> = T & Plugin;
-
-/**
- *
- * @param components 批量注册插件
- * @returns
- */
-
-export function makeInstaller(components: Plugin[]) {
-	const install = (app: App) => {
-		each(components, (component) => {
-			app.use(component);
-		});
-	};
-
-	return install;
-}
 
 /**
  * 给单个组件添加install方法，使其可以通过app.use()方法注册为Vue插件。
@@ -30,4 +13,12 @@ export const withInstall = <T>(component: T) => {
 		app.component(name, component as SFCWithInstall<T>);
 	};
 	return component as SFCWithInstall<T>;
+};
+
+export const withInstallFunction = <T>(fn: T, name: string) => {
+	(fn as SFCWithInstall<T>).install = (app: App) => {
+		app.config.globalProperties[name] = fn;
+	};
+
+	return fn as SFCWithInstall<T>;
 };
