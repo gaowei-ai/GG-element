@@ -11,6 +11,7 @@ import {
 	GgDropdownItem,
 	GgConfigProvider,
 	GgMessage,
+	GgInput,
 } from "@GG-element/components";
 
 export default [
@@ -26,4 +27,5 @@ export default [
 	GgDropdownItem,
 	GgConfigProvider,
 	GgMessage,
+	GgInput,
 ];

@@ -17,8 +17,7 @@
 		msg: "children",
 	});
 
-	const { t } = useLocale();
-	useLocale;
+	const { t } = useLocale().value;
 
 	console.log(props.msg);
 </script>

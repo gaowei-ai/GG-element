@@ -1,21 +1,24 @@
 <template>
-	<button @click="handleClick('info')">info</button>
-	<button @click="handleClick('success')">success</button>
-	<button @click="handleClick('warning')">warning</button>
-	<button @click="handleClick('danger')">danger</button>
-	<button @click="handleClick('error')">error</button>
+	<div><gg-input type="password" v-model="value" show-password></gg-input>:{{ value }}</div>
+	<div><gg-input type="textarea" v-model="value"></gg-input>:{{ value }}</div>
+	<gg-button @click="handleClick">adada</gg-button>
+	<Children />
 </template>
 
 <script setup lang="ts">
-	import { GgMessage, type MessageType } from "GG-element";
-	const handleClick = (type: MessageType) => {
+	import { GgInput, GgMessage } from "GG-element";
+	import { getCurrentInstance, ref } from "vue";
+	import Children from "./components/Children.vue";
+	console.log("children", Children);
+	const value = ref("sds");
+	const app = getCurrentInstance();
+
+	const handleClick = () => {
 		GgMessage({
-			type: type,
 			message: "hello",
-			// duration: 0,
-			showClose: true,
+			type: "success",
 		});
-		GgMessage.error!("success");
+		app?.proxy?.$message("hehehe");
 	};
 </script>
 <style lang="scss" scoped></style>
