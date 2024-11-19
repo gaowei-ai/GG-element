@@ -12,6 +12,8 @@ import {
 	GgConfigProvider,
 	GgMessage,
 	GgInput,
+	GgMessageBox,
+	GgOverLay,
 } from "@GG-element/components";
 
 export default [
@@ -26,6 +28,8 @@ export default [
 	GgDropdown,
 	GgDropdownItem,
 	GgConfigProvider,
-	GgMessage,
+	GgOverLay,
 	GgInput,
+	GgMessage,
+	GgMessageBox,
 ];

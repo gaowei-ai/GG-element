@@ -11,10 +11,12 @@ import { hooksPlugin } from "@GG-element/vite-plugins";
 function getDirectoriesSync(basePath: string) {
 	const entries = readdirSync(resolve(__dirname, basePath), { withFileTypes: true });
 
-	return map(
+	const res = map(
 		filter(entries, (entry) => entry.isDirectory()),
 		(entry) => entry.name
 	);
+	// console.log(res, "-----------");
+	return res;
 }
 
 const isProd = process.env.NODE_ENV === "production";
@@ -81,6 +83,10 @@ export default defineConfig({
 				},
 				//分包
 				manualChunks(id) {
+					if (includes(id, "MessageBox")) {
+						console.log(id, "has00000000000000----");
+					}
+
 					if (includes(id, "node_modules")) return "vendor";
 
 					if (includes(id, "/packages/hooks")) return "hooks";
@@ -89,7 +95,13 @@ export default defineConfig({
 						return "utils";
 
 					for (const item of getDirectoriesSync("../components")) {
-						if (includes(id, `/packages/components/${item}`)) return item;
+						// if (item === "MessageBox") {
+						// 	console.log("messageBox", id);
+						// }
+						if (includes(id, `/packages/components/${item}`)) {
+							console.log(item);
+							return item;
+						}
 					}
 				},
 			},
