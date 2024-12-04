@@ -10,3 +10,5 @@ export * from "./Message";
 export * from "./Input";
 export * from "./Overlay";
 export * from "./MessageBox";
+
+export * from "./Loading";

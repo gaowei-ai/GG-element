@@ -14,6 +14,7 @@ import {
 	GgInput,
 	GgMessageBox,
 	GgOverLay,
+	GgLoading,
 } from "@GG-element/components";
 
 export default [
@@ -32,4 +33,5 @@ export default [
 	GgInput,
 	GgMessage,
 	GgMessageBox,
+	GgLoading,
 ];
